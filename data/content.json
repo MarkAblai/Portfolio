@@ -1,0 +1,35 @@
+{
+  "name": "MARK ABLAI",
+  "tagline": "CYBERSECURITY · NETWORKING · LINUX",
+  "subline": "CCDC Linux Team Lead — 1st in Missouri · CompTIA Network+ · Proxmox homelab",
+  "projectsSub": "Charted territory — full writeups, configs, and diagrams.",
+  "feedSub": "Riding the koi — latest findings from the voyage.",
+  "email": "you@example.com",
+  "linkedin": "https://www.linkedin.com/in/YOUR-HANDLE",
+  "github": "https://github.com/YOUR-HANDLE",
+  "projects": [
+    {
+      "title": "PROXMOX HOMELAB",
+      "badge": "FEATURED",
+      "desc": "VLANs, firewall, VPN, centralized logging, backups. Full network map and config walkthrough.",
+      "link": "homelab.html",
+      "linkText": "Read the chart"
+    },
+    {
+      "title": "FORTIGATE APP CONTROL",
+      "desc": "Application control policy design and enforcement — coursework project writeup.",
+      "link": "#",
+      "linkText": "Read the chart"
+    },
+    {
+      "title": "CCDC LINUX TOOLKIT",
+      "desc": "Hardening scripts, checklists, and incident-response prep that took the Linux team to 1st in Missouri.",
+      "link": "#",
+      "linkText": "Read the chart"
+    },
+    {
+      "title": "MORE UNDERWAY",
+      "desc": "Wazuh SIEM build and CCNA lab notes — coming to the log."
+    }
+  ]
+}
