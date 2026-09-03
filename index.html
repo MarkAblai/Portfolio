@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mark Ablai — Cybersecurity &amp; Networking</title>
+<meta name="description" content="Portfolio of Mark Ablai — cybersecurity, networking, Linux. CCDC Linux team lead, Proxmox homelab builder.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@200;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <a class="nav-logo" href="#top">MARK.</a>
+  <div class="nav-links">
+    <a href="#projects">Projects</a>
+    <a href="homelab.html">Homelab</a>
+    <a href="#feed">Feed</a>
+    <a href="resume.html">Resume</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- ============ SCENE 1 — HERO: the grand chart ============ -->
+<div class="hero-stage" id="top">
+  <div class="hero-sticky">
+
+    <svg class="hero-sky" viewBox="0 0 1280 800" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <rect width="1280" height="800" fill="#0A1410"/>
+      <g fill="#EDE7D3">
+        <circle cx="150" cy="100" r="1.6" opacity=".7"/><circle cx="360" cy="160" r="1.2" opacity=".5"/>
+        <circle cx="540" cy="80" r="1.4" opacity=".6"/><circle cx="780" cy="130" r="1.2" opacity=".5"/>
+        <circle cx="990" cy="90" r="1.6" opacity=".7"/><circle cx="1160" cy="170" r="1.2" opacity=".5"/>
+        <circle cx="880" cy="220" r="1" opacity=".4"/><circle cx="230" cy="230" r="1" opacity=".4"/>
+        <circle cx="450" cy="290" r="1" opacity=".3"/><circle cx="1060" cy="300" r="1.1" opacity=".35"/>
+      </g>
+    </svg>
+
+    <div class="sea-perspective">
+      <svg class="hero-sea" viewBox="0 0 1280 400" preserveAspectRatio="xMidYMin slice" aria-hidden="true">
+        <defs>
+          <pattern id="seah" width="9" height="9" patternTransform="rotate(-40)" patternUnits="userSpaceOnUse">
+            <line x1="0" y1="0" x2="0" y2="9" stroke="#123B2E" stroke-width="1" opacity=".45"/>
+          </pattern>
+        </defs>
+        <rect width="1280" height="400" fill="#1C5243"/>
+        <rect width="1280" height="400" fill="url(#seah)"/>
+        <g stroke="#2F7A5F" stroke-width="1.4">
+          <line x1="640" y1="2" x2="-160" y2="400"/><line x1="640" y1="2" x2="110" y2="400"/>
+          <line x1="640" y1="2" x2="375" y2="400"/><line x1="640" y1="2" x2="640" y2="400"/>
+          <line x1="640" y1="2" x2="905" y2="400"/><line x1="640" y1="2" x2="1170" y2="400"/>
+          <line x1="640" y1="2" x2="1440" y2="400"/>
+          <line x1="0" y1="22" x2="1280" y2="22"/><line x1="0" y1="52" x2="1280" y2="52"/>
+          <line x1="0" y1="92" x2="1280" y2="92"/><line x1="0" y1="146" x2="1280" y2="146"/>
+          <line x1="0" y1="214" x2="1280" y2="214"/><line x1="0" y1="294" x2="1280" y2="294"/>
+        </g>
+        <g class="route-lines" stroke="#E8DCB4" stroke-width="2" stroke-dasharray="7 8" fill="none" opacity=".85">
+          <path d="M 320 390 C 430 300 530 160 632 18"/>
+          <path d="M 990 390 C 890 290 760 160 648 18"/>
+        </g>
+        <g stroke="#E8DCB4" stroke-width="2.4" opacity=".9">
+          <path d="M 416 252 l 10 10 m 0 -10 l -10 10"/><path d="M 540 142 l 9 9 m 0 -9 l -9 9"/>
+          <path d="M 892 236 l 10 10 m 0 -10 l -10 10"/><path d="M 758 138 l 9 9 m 0 -9 l -9 9"/>
+        </g>
+        <g class="islands">
+          <ellipse cx="170" cy="116" rx="88" ry="28" fill="#5E8C43"/><ellipse cx="112" cy="102" rx="52" ry="20" fill="#729D52"/>
+          <ellipse cx="228" cy="104" rx="42" ry="17" fill="#729D52"/>
+          <ellipse cx="1130" cy="136" rx="95" ry="32" fill="#5E8C43"/><ellipse cx="1195" cy="119" rx="52" ry="21" fill="#729D52"/>
+          <ellipse cx="1062" cy="117" rx="45" ry="18" fill="#729D52"/>
+          <ellipse cx="440" cy="68" rx="45" ry="14" fill="#547E3C"/><ellipse cx="855" cy="63" rx="42" ry="13" fill="#547E3C"/>
+          <ellipse cx="565" cy="45" rx="24" ry="7" fill="#4C7336"/><ellipse cx="735" cy="43" rx="22" ry="7" fill="#4C7336"/>
+        </g>
+      </svg>
+    </div>
+
+    <svg class="hero-star" viewBox="0 0 480 260" aria-hidden="true">
+      <defs>
+        <radialGradient id="glow" cx=".5" cy=".5" r=".5">
+          <stop offset="0%" stop-color="#F7F3E3" stop-opacity=".9"/>
+          <stop offset="45%" stop-color="#D8E8C9" stop-opacity=".22"/>
+          <stop offset="100%" stop-color="#D8E8C9" stop-opacity="0"/>
+        </radialGradient>
+      </defs>
+      <ellipse cx="240" cy="130" rx="235" ry="115" fill="url(#glow)"/>
+      <g stroke="#FBF8EC" stroke-linecap="round">
+        <line x1="240" y1="82" x2="240" y2="178" stroke-width="3"/>
+        <line x1="192" y1="130" x2="288" y2="130" stroke-width="3"/>
+        <line x1="212" y1="102" x2="268" y2="158" stroke-width="1.6"/>
+        <line x1="268" y1="102" x2="212" y2="158" stroke-width="1.6"/>
+      </g>
+      <circle cx="240" cy="130" r="7" fill="#FFFFFF"/>
+      <path d="M 206 130 a 34 34 0 0 1 68 0" fill="none" stroke="#FBF8EC" stroke-width="1.4" opacity=".7"/>
+    </svg>
+
+    <!-- swirl clouds: left / right / mid, parallax layers -->
+    <svg class="clouds clouds-left" viewBox="0 0 420 420" aria-hidden="true">
+      <path d="M -20 420 L -20 220 Q 30 150 100 185 Q 125 110 205 135 Q 285 100 320 170 Q 400 160 398 235 Q 460 255 425 320 Q 448 390 380 400 Q 360 440 300 425 L -20 425 Z" fill="#E9DCC3"/>
+      <g fill="none" stroke="#0A1410" stroke-linecap="round">
+        <path d="M 60 300 q 40 -40 74 -5 q 24 26 -7 48 q -26 18 -43 -7 q -11 -18 10 -29 q 14 -7 19 7" stroke-width="3"/>
+        <path d="M 175 235 q 36 -36 67 -5 q 21 24 -6 43 q -24 16 -38 -6 q -10 -16 8 -25" stroke-width="2.8"/>
+        <path d="M 280 300 q 31 -31 57 -4 q 18 20 -6 36 q -20 13 -32 -6 q -7 -13 7 -21" stroke-width="2.6"/>
+        <path d="M 130 370 q 36 -33 67 -4 q 20 23 -6 40 q -23 14 -36 -6" stroke-width="2.8"/>
+        <path d="M 40 225 q 26 -24 48 -2 q 14 15 -5 27 q -17 10 -26 -5" stroke-width="2.4"/>
+        <path d="M 250 385 q 24 -21 43 -2 q 13 14 -5 25" stroke-width="2.4"/>
+        <path d="M 340 250 q 21 -19 38 -1 q 11 12 -4 21" stroke-width="2.2"/>
+        <path d="M 355 350 q 20 -18 36 -2 q 10 11 -4 20" stroke-width="2.2"/>
+        <path d="M 105 335 q 48 17 96 -2" stroke-width="1.4" opacity=".7"/>
+        <path d="M 205 300 q 44 14 86 -4" stroke-width="1.4" opacity=".7"/>
+      </g>
+      <g stroke="#0A1410" stroke-width="1.8" stroke-dasharray="3 5" fill="none" opacity=".8">
+        <path d="M 70 200 q 60 -19 120 3"/><path d="M 240 200 q 48 -14 94 4"/>
+      </g>
+    </svg>
+
+    <svg class="clouds clouds-right" viewBox="0 0 420 420" aria-hidden="true">
+      <path d="M 440 420 L 440 210 Q 385 145 315 178 Q 292 105 212 130 Q 132 96 98 165 Q 20 156 24 230 Q -38 252 -2 315 Q -24 385 46 396 Q 66 438 126 422 L 440 425 Z" fill="#E9DCC3"/>
+      <g fill="none" stroke="#0A1410" stroke-linecap="round">
+        <path d="M 355 295 q -40 -40 -74 -5 q -24 26 7 48 q 26 18 43 -7 q 11 -18 -10 -29 q -14 -7 -19 7" stroke-width="3"/>
+        <path d="M 240 230 q -36 -36 -67 -5 q -21 24 6 43 q 24 16 38 -6 q 10 -16 -8 -25" stroke-width="2.8"/>
+        <path d="M 140 295 q -31 -31 -57 -4 q -18 20 6 36 q 20 13 32 -6 q 7 -13 -7 -21" stroke-width="2.6"/>
+        <path d="M 290 365 q -36 -33 -67 -4 q -20 23 6 40 q 23 14 36 -6" stroke-width="2.8"/>
+        <path d="M 380 222 q -26 -24 -48 -2 q -14 15 5 27 q 17 10 26 -5" stroke-width="2.4"/>
+        <path d="M 165 382 q -24 -21 -43 -2 q -13 14 5 25" stroke-width="2.4"/>
+        <path d="M 80 248 q -21 -19 -38 -1 q -11 12 4 21" stroke-width="2.2"/>
+        <path d="M 310 330 q -48 17 -96 -2" stroke-width="1.4" opacity=".7"/>
+      </g>
+      <g stroke="#0A1410" stroke-width="1.8" stroke-dasharray="3 5" fill="none" opacity=".8">
+        <path d="M 340 196 q -60 -19 -120 3"/><path d="M 175 198 q -48 -14 -94 4"/>
+      </g>
+    </svg>
+
+    <svg class="clouds clouds-mid clouds-mid-l" viewBox="0 0 200 110" aria-hidden="true">
+      <path d="M 15 75 Q 40 35 82 52 Q 122 30 138 65 Q 172 72 152 92 Q 115 108 82 94 Q 40 102 28 82 Q 5 88 15 75 Z" fill="#E9DCC3"/>
+      <g fill="none" stroke="#0A1410" stroke-linecap="round">
+        <path d="M 55 72 q 22 -20 40 -2 q 12 13 -5 23 q -14 8 -21 -5" stroke-width="2"/>
+        <path d="M 105 78 q 16 -13 28 -1" stroke-width="1.6"/>
+      </g>
+      <path d="M 30 58 q 40 -12 78 4" stroke="#0A1410" stroke-width="1.4" stroke-dasharray="3 5" fill="none" opacity=".8"/>
+    </svg>
+
+    <svg class="clouds clouds-mid clouds-mid-r" viewBox="0 0 200 110" aria-hidden="true">
+      <path d="M 185 72 Q 160 32 118 50 Q 78 28 62 62 Q 28 70 48 90 Q 85 106 118 92 Q 160 100 172 80 Q 195 85 185 72 Z" fill="#E9DCC3"/>
+      <g fill="none" stroke="#0A1410" stroke-linecap="round">
+        <path d="M 140 70 q -20 -18 -36 -2 q -11 12 4 20 q 13 8 19 -4" stroke-width="1.9"/>
+        <path d="M 90 76 q -16 -13 -28 -1" stroke-width="1.6"/>
+      </g>
+    </svg>
+
+    <div class="hero-copy">
+      <h1 class="hero-name" data-c="name">MARK ABLAI</h1>
+      <p class="hero-tagline" data-c="tagline">CYBERSECURITY · NETWORKING · LINUX</p>
+      <p class="hero-subline" data-c="subline">CCDC Linux Team Lead — 1st in Missouri · CompTIA Network+ · Proxmox homelab</p>
+      <div class="hero-cta">
+        <a class="btn btn-solid" href="#projects">View projects</a>
+        <a class="btn btn-ghost" href="resume.html">Resume</a>
+      </div>
+    </div>
+
+    <div class="scroll-hint">SCROLL ↓</div>
+  </div>
+</div>
+
+<!-- ============ TRANSITION 1 — watercolor wash flood ============ -->
+<div class="wash">
+  <svg viewBox="0 0 1280 120" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0 120 L0 70 Q 110 20 240 58 Q 360 10 480 50 Q 600 6 720 46 Q 850 8 970 52 Q 1100 14 1280 60 L1280 120 Z" fill="#EDE3CC"/>
+    <path d="M0 84 Q 110 34 240 72 Q 360 24 480 64 Q 600 20 720 60 Q 850 22 970 66 Q 1100 28 1280 74" fill="none" stroke="#0A1410" stroke-width="3"/>
+  </svg>
+</div>
+
+<!-- ============ SCENE 2 — PROJECTS: paper & koi ============ -->
+<section class="projects" id="projects">
+  <div class="paper-speckle" aria-hidden="true"></div>
+  <div class="blotch blotch-a" aria-hidden="true"></div>
+  <div class="blotch blotch-b" aria-hidden="true"></div>
+
+  <svg class="koi" viewBox="-120 -20 280 500" aria-hidden="true">
+    <defs>
+      <pattern id="finh" width="5" height="5" patternTransform="rotate(70)" patternUnits="userSpaceOnUse">
+        <line x1="0" y1="0" x2="0" y2="5" stroke="#8A2F1E" stroke-width=".9"/>
+      </pattern>
+    </defs>
+    <g transform="rotate(10 20 200)">
+      <path d="M 0 0 C 60 30 90 110 70 190 C 55 255 10 310 -35 350 C -20 300 -30 260 -55 235 C -30 200 -25 160 -40 120 C -20 70 -25 25 0 0 Z" fill="#F4EDD9" stroke="#1A170F" stroke-width="2.4"/>
+      <path d="M 8 18 C 50 45 72 105 60 170 C 52 210 35 245 12 275 C 20 230 10 200 -8 180 C 5 150 8 110 -2 80 C 4 55 4 32 8 18 Z" fill="#D8422C"/>
+      <path d="M 30 60 q 22 30 12 70 q 18 -8 20 -40 q -6 -30 -32 -30 Z" fill="#8A2F1E" opacity=".55"/>
+      <ellipse cx="10" cy="130" rx="16" ry="26" fill="#F4EDD9"/>
+      <path d="M -35 350 C -55 390 -50 430 -70 460 C -60 415 -78 400 -92 380 C -70 372 -52 360 -35 350 Z" fill="#E8896B" stroke="#1A170F" stroke-width="2"/>
+      <path d="M -35 350 C -55 390 -50 430 -70 460 C -60 415 -78 400 -92 380 C -70 372 -52 360 -35 350 Z" fill="url(#finh)" opacity=".7"/>
+      <path d="M 62 150 C 95 155 115 175 120 205 C 95 195 78 195 62 200 Z" fill="#E8896B" stroke="#1A170F" stroke-width="1.8"/>
+      <path d="M 62 150 C 95 155 115 175 120 205 C 95 195 78 195 62 200 Z" fill="url(#finh)" opacity=".7"/>
+      <path d="M -38 130 C -70 125 -90 140 -100 165 C -75 160 -58 165 -44 175 Z" fill="#E8896B" stroke="#1A170F" stroke-width="1.8"/>
+      <path d="M 12 8 C 30 12 44 24 50 40 C 34 34 20 34 8 38 Z" fill="url(#finh)" stroke="#1A170F" stroke-width="1.6"/>
+      <circle cx="14" cy="26" r="4" fill="#1A170F"/>
+      <path d="M -6 42 q 10 8 22 4" fill="none" stroke="#1A170F" stroke-width="1.4"/>
+      <g stroke="#1A170F" stroke-width=".9" opacity=".6" fill="none">
+        <path d="M 18 90 q 14 6 26 2"/><path d="M 14 120 q 16 7 30 2"/>
+        <path d="M 8 150 q 15 7 28 3"/><path d="M 0 185 q 14 8 26 4"/>
+      </g>
+    </g>
+  </svg>
+
+  <div class="section-inner">
+    <div class="section-head reveal">
+      <div class="head-block"><h2>PROJECTS</h2></div>
+      <p class="head-sub" data-c="projectsSub">Charted territory — full writeups, configs, and diagrams.</p>
+    </div>
+    <div class="cards" id="cards"></div>
+  </div>
+
+  <div class="ripple-rings" aria-hidden="true">
+    <svg viewBox="0 0 160 160"><g fill="none" stroke="#1A170F" stroke-width="1.2" opacity=".5">
+      <circle cx="80" cy="80" r="24"/><circle cx="80" cy="80" r="44"/><circle cx="80" cy="80" r="66"/>
+    </g></svg>
+  </div>
+</section>
+
+<!-- ============ TRANSITION 2 + SCENE 3 — FEED: riding the koi ============ -->
+<div class="zoom-stage" id="feed">
+  <div class="zoom-sticky">
+    <svg class="scales-bg" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <defs>
+        <pattern id="scales" width="120" height="100" patternUnits="userSpaceOnUse">
+          <rect width="120" height="100" fill="#D8422C"/>
+          <path d="M 0 0 a 60 60 0 0 0 120 0 M -60 50 a 60 60 0 0 0 120 0 M 60 50 a 60 60 0 0 0 120 0 M 0 100 a 60 60 0 0 0 120 0"
+                fill="#E8896B" stroke="#1A170F" stroke-width="3"/>
+          <path d="M 14 26 q 20 16 44 12 M -46 76 q 20 16 44 12 M 74 76 q 20 16 44 12"
+                fill="none" stroke="#F4EDD9" stroke-width="4" opacity=".5" stroke-linecap="round"/>
+        </pattern>
+      </defs>
+      <rect width="1200" height="800" fill="url(#scales)"/>
+    </svg>
+
+    <div class="feed-panel">
+      <div class="feed-head">
+        <div class="head-block head-block-cream"><h2>SHIP'S LOG</h2></div>
+        <p class="head-sub" data-c="feedSub">Riding the koi — latest findings from the voyage.</p>
+      </div>
+      <ol class="feed-list" id="feed-list"></ol>
+    </div>
+  </div>
+</div>
+
+<!-- ============ SCENE 4 — CONTACT: surfacing to the ship ============ -->
+<section class="contact" id="contact">
+  <svg class="contact-scene" viewBox="0 0 1280 460" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+    <defs>
+      <pattern id="sailh" width="6" height="6" patternTransform="rotate(30)" patternUnits="userSpaceOnUse">
+        <line x1="0" y1="0" x2="0" y2="6" stroke="#0A1410" stroke-width="1.6"/>
+      </pattern>
+    </defs>
+    <rect width="1280" height="460" fill="#EDE3CC"/>
+    <g fill="#E2CBAA">
+      <path d="M 120 300 Q 190 250 280 278 Q 350 240 430 272 Q 520 246 590 282 Q 660 258 720 288 Q 700 330 620 322 Q 560 348 470 334 Q 380 352 300 334 Q 200 344 150 322 Q 90 326 120 300 Z"/>
+      <path d="M 760 296 Q 830 252 920 276 Q 1000 246 1080 274 Q 1170 254 1220 288 Q 1240 322 1160 320 Q 1090 344 1000 330 Q 910 346 840 328 Q 780 330 760 296 Z"/>
+    </g>
+    <g fill="none" stroke="#0A1410" stroke-linecap="round" stroke-width="1.6" opacity=".85">
+      <path d="M 240 262 q 8 -10 16 0 q 8 -10 16 0"/><path d="M 320 246 q 7 -9 14 0 q 7 -9 14 0"/>
+      <path d="M 200 292 q 7 -9 14 0 q 7 -9 14 0"/><path d="M 860 258 q 8 -10 16 0 q 8 -10 16 0"/>
+      <path d="M 950 240 q 7 -9 14 0 q 7 -9 14 0"/><path d="M 1030 280 q 7 -9 14 0 q 7 -9 14 0"/>
+      <path d="M 920 296 q 6 -8 12 0 q 6 -8 12 0"/>
+    </g>
+    <g>
+      <path d="M 560 336 L 740 336 L 716 366 L 588 366 Z" fill="#0A1410"/>
+      <line x1="614" y1="336" x2="608" y2="212" stroke="#0A1410" stroke-width="4"/>
+      <line x1="690" y1="336" x2="700" y2="192" stroke="#0A1410" stroke-width="4"/>
+      <path d="M 610 220 L 548 330 L 610 316 Z" fill="url(#sailh)" stroke="#0A1410" stroke-width="2"/>
+      <path d="M 612 224 L 676 322 L 614 318 Z" fill="#0A1410"/>
+      <path d="M 698 200 L 640 326 L 698 314 Z" fill="url(#sailh)" stroke="#0A1410" stroke-width="2"/>
+      <path d="M 700 204 L 756 318 L 702 312 Z" fill="#0A1410"/>
+      <line x1="608" y1="214" x2="700" y2="194" stroke="#0A1410" stroke-width="2"/>
+    </g>
+    <g fill="none" stroke="#0A1410" stroke-width="3" stroke-linecap="round">
+      <path d="M 0 400 h 90 m 30 0 h 200 m 26 0 h 120"/>
+      <path d="M 520 412 h 240 m 30 0 h 150"/>
+      <path d="M 980 400 h 110 m 26 0 h 164"/>
+      <path d="M 60 432 h 150 m 30 0 h 260"/>
+      <path d="M 620 438 h 200 m 26 0 h 300"/>
+      <path d="M 300 388 h 90"/><path d="M 840 386 h 80"/>
+    </g>
+  </svg>
+
+  <div class="contact-copy">
+    <p class="contact-kicker">SEND A BIRD</p>
+    <a class="contact-email" id="email-link" data-c="email" href="#">you@example.com</a>
+    <div class="contact-links">
+      <a id="link-linkedin" href="#" rel="noopener">LinkedIn</a><span>·</span>
+      <a id="link-github" href="#" rel="noopener">GitHub</a><span>·</span>
+      <a href="resume.html">Resume (PDF)</a>
+    </div>
+    <p class="contact-foot">✦ &nbsp;CHARTED FROM SPRINGFIELD, MO</p>
+  </div>
+</section>
+
+<script src="js/main.js"></script>
+</body>
+</html>

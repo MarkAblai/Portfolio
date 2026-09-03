@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Homelab — Mark Ablai</title>
+<meta name="description" content="Proxmox homelab: VLANs, firewall, VPN, centralized logging, and backups. Config and design walkthrough.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@200;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body class="page">
+
+<nav class="nav">
+  <a class="nav-logo" href="index.html">MARK.</a>
+  <div class="nav-links">
+    <a href="index.html#projects">Projects</a>
+    <a href="homelab.html">Homelab</a>
+    <a href="index.html#feed">Feed</a>
+    <a href="resume.html">Resume</a>
+    <a href="index.html#contact">Contact</a>
+  </div>
+</nav>
+
+<div class="page-inner">
+  <h1>THE HOMELAB</h1>
+  <p class="lede">Proxmox · VLANs · Firewall · VPN · Logging</p>
+
+  <section>
+    <h2>WHY IT EXISTS</h2>
+    <p>Self-initiated, built outside coursework, running since early 2025. The goal: a
+    production-style environment where breaking things is free and every service is something
+    I configured, secured, and documented myself.</p>
+  </section>
+
+  <section>
+    <h2>NETWORK MAP</h2>
+    <div class="diagram">
+      <svg viewBox="0 0 900 440" xmlns="http://www.w3.org/2000/svg" role="img" style="width:100%;height:auto">
+        <title>Homelab network diagram</title>
+        <desc>Internet feeds a firewall, which feeds a managed switch splitting into management, LAN, server, and lab VLANs; the server VLAN hosts a Proxmox node running logging, VPN, and backup services.</desc>
+        <defs>
+          <marker id="arr" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+            <path d="M0 0 L9 4.5 L0 9 Z" fill="#1A170F"/>
+          </marker>
+        </defs>
+        <g font-family="Montserrat, Arial, sans-serif">
+          <rect x="380" y="16" width="140" height="46" fill="#EDE3CC" stroke="#1A170F" stroke-width="2"/>
+          <text x="450" y="44" text-anchor="middle" font-size="15" font-weight="700" fill="#1A170F">Internet</text>
+
+          <line x1="450" y1="62" x2="450" y2="100" stroke="#1A170F" stroke-width="2" marker-end="url(#arr)"/>
+
+          <rect x="360" y="104" width="180" height="52" fill="#A5521F" stroke="#1A170F" stroke-width="2"/>
+          <text x="450" y="126" text-anchor="middle" font-size="14" font-weight="700" fill="#F7F1E0">Firewall / router</text>
+          <text x="450" y="144" text-anchor="middle" font-size="11.5" fill="#F2D9C4">inter-VLAN rules · VPN endpoint</text>
+
+          <line x1="450" y1="156" x2="450" y2="192" stroke="#1A170F" stroke-width="2" marker-end="url(#arr)"/>
+
+          <rect x="350" y="196" width="200" height="46" fill="#6E7D6A" stroke="#1A170F" stroke-width="2"/>
+          <text x="450" y="224" text-anchor="middle" font-size="14" font-weight="700" fill="#F7F1E0">Managed switch (802.1Q)</text>
+
+          <line x1="450" y1="242" x2="140" y2="292" stroke="#1A170F" stroke-width="2" marker-end="url(#arr)"/>
+          <line x1="450" y1="242" x2="360" y2="292" stroke="#1A170F" stroke-width="2" marker-end="url(#arr)"/>
+          <line x1="450" y1="242" x2="560" y2="292" stroke="#1A170F" stroke-width="2" marker-end="url(#arr)"/>
+          <line x1="450" y1="242" x2="775" y2="292" stroke="#1A170F" stroke-width="2" marker-end="url(#arr)"/>
+
+          <rect x="60" y="296" width="160" height="44" fill="#F7F1E0" stroke="#1A170F" stroke-width="2"/>
+          <text x="140" y="316" text-anchor="middle" font-size="13" font-weight="700" fill="#1A170F">VLAN 10 — MGMT</text>
+          <text x="140" y="332" text-anchor="middle" font-size="11" fill="#6B5F45">hypervisor, switch, IPMI</text>
+
+          <rect x="282" y="296" width="156" height="44" fill="#F7F1E0" stroke="#1A170F" stroke-width="2"/>
+          <text x="360" y="316" text-anchor="middle" font-size="13" font-weight="700" fill="#1A170F">VLAN 20 — LAN</text>
+          <text x="360" y="332" text-anchor="middle" font-size="11" fill="#6B5F45">trusted clients</text>
+
+          <rect x="482" y="296" width="156" height="44" fill="#F7F1E0" stroke="#1A170F" stroke-width="2"/>
+          <text x="560" y="316" text-anchor="middle" font-size="13" font-weight="700" fill="#1A170F">VLAN 30 — SERVERS</text>
+          <text x="560" y="332" text-anchor="middle" font-size="11" fill="#6B5F45">Proxmox VMs</text>
+
+          <rect x="697" y="296" width="156" height="44" fill="#F7F1E0" stroke="#1A170F" stroke-width="2"/>
+          <text x="775" y="316" text-anchor="middle" font-size="13" font-weight="700" fill="#1A170F">VLAN 40 — LAB</text>
+          <text x="775" y="332" text-anchor="middle" font-size="11" fill="#6B5F45">sandboxed experiments</text>
+
+          <line x1="560" y1="340" x2="560" y2="372" stroke="#1A170F" stroke-width="2" marker-end="url(#arr)"/>
+          <rect x="420" y="376" width="280" height="48" fill="#D8422C" stroke="#1A170F" stroke-width="2"/>
+          <text x="560" y="396" text-anchor="middle" font-size="13.5" font-weight="700" fill="#F7F1E0">Proxmox node</text>
+          <text x="560" y="413" text-anchor="middle" font-size="11.5" fill="#F7E0D6">Linux VMs · logging · VPN · backups</text>
+        </g>
+      </svg>
+    </div>
+    <p>Traffic between VLANs is deny-by-default; only the specific flows I need are allowed
+    through firewall rules. Management interfaces are reachable only from the MGMT VLAN.</p>
+  </section>
+
+  <section>
+    <h2>WHAT'S RUNNING</h2>
+    <ul>
+      <li><strong>Proxmox VE</strong> — hypervisor hosting the Linux VM fleet.</li>
+      <li><strong>Firewall</strong> — inter-VLAN policy, NAT, and the VPN endpoint for remote access.</li>
+      <li><strong>Centralized logging</strong> — syslog from every VM and network device into one place.</li>
+      <li><strong>Backups</strong> — scheduled VM snapshots and off-box copies, restore-tested.</li>
+      <li><strong>Lab VLAN</strong> — isolated space for CCDC prep, malware-free attack/defense drills, and cert studying.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>LESSONS THAT STUCK</h2>
+    <ul>
+      <li>Segmentation is cheap before you build and expensive after — VLAN design came first, services second.</li>
+      <li>A backup that hasn't been restored is a rumor. Restore tests are on the schedule, not "someday."</li>
+      <li>Centralized logs turned debugging from guessing into reading.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>NEXT ON THE CHART</h2>
+    <p>Wazuh SIEM on top of the existing log pipeline, and a CCNA-driven redesign of the
+    routing layer. Progress lands in the <a href="index.html#feed" style="color:#8A2F1E;font-weight:700">ship's log</a>.</p>
+  </section>
+</div>
+
+</body>
+</html>
