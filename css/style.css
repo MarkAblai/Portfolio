@@ -237,6 +237,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--cream-bright);outli
 .page{background:var(--paper);color:var(--ink-soft);min-height:100vh;padding:130px 0 90px}
 .page .nav{mix-blend-mode:normal;background:var(--paper);border-bottom:2px solid var(--ink-soft)}
 .page .nav a{color:var(--ink-soft)}
+.page-bare{padding-top:70px}   /* no fixed nav to clear */
 .page-inner{width:min(92vw,980px);margin:0 auto}
 .page h1{
   font-family:var(--font-display);font-weight:400;
