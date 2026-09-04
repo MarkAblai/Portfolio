@@ -166,7 +166,11 @@ function onScroll() {
   fillFeed(feed);
   observeReveals();
   if (!reduced) {
-    window.addEventListener('scroll', onScroll, { passive: true });
+    /* Lenis (js/smooth-scroll.js) eases the scroll position, so when it's running
+       drive the scenes off its frame-synced event — the native scroll event reports
+       the raw position and would leave the transforms a step behind the page. */
+    if (window.smoothScroll) window.smoothScroll.on('scroll', tick);
+    else window.addEventListener('scroll', onScroll, { passive: true });
     window.addEventListener('resize', onScroll, { passive: true });
     tick();
   }

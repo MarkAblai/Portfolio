@@ -19,6 +19,17 @@
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
+
+/* ============ lenis (smooth scroll) ============
+   Required by js/vendor/lenis.min.js. Lenis puts .lenis on <html> once it takes
+   over; without these the native smooth-scroll fights it and nested scrollers trap. */
+html.lenis,html.lenis body{height:auto}
+html.lenis{scroll-behavior:auto}                       /* Lenis owns the easing now */
+.lenis.lenis-smooth iframe{pointer-events:none}
+.lenis:not(.lenis-autoToggle).lenis-stopped{overflow:clip}
+.lenis [data-lenis-prevent],
+.lenis [data-lenis-prevent-wheel],
+.lenis [data-lenis-prevent-touch]{overscroll-behavior:contain}
 body{font-family:var(--font-body);background:var(--ink);color:var(--cream-bright)}
 img,svg{display:block}
 a{text-decoration:none;color:inherit}

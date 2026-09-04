@@ -1,6 +1,6 @@
 # Mark Ablai — portfolio
 
-Static site. No build step, no dependencies. Ink-and-watercolor map theme with four scroll scenes:
+Static site. No build step; one vendored dependency (Lenis, for the smooth scroll). Ink-and-watercolor map theme with four scroll scenes:
 cloud dive → watercolor wash → koi projects → scale zoom onto the fish's back (feed) → surface to the ship (contact).
 
 ## Files you'll actually edit
@@ -61,5 +61,9 @@ python -m http.server 8000
 ## How the scenes work (if you ever do want to tinker)
 
 - `js/main.js` — one scroll handler drives all transforms. Each scene reads its progress (0→1) from its stage's scroll position.
+- `js/smooth-scroll.js` — [Lenis](https://github.com/darkroomengineering/lenis) (darkroom.engineering) eases the scroll
+  itself, and the scenes are driven off that eased position, so the transforms glide instead of stepping with the
+  wheel. Feel knobs (`lerp`, wheel/touch multipliers) are the first few lines of that file — lower `lerp` = longer,
+  heavier glide. `js/vendor/lenis.min.js` is the vendored library (MIT, v1.3.26); don't edit it, replace it.
 - Scene heights: `.hero-stage` (220vh) and `.zoom-stage` (260vh) in `css/style.css` control how long each transition lasts. Bigger = slower.
-- `prefers-reduced-motion` collapses all scenes to static layouts automatically.
+- `prefers-reduced-motion` collapses all scenes to static layouts and turns the smooth scroll off automatically.
