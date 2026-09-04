@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Motion poster — Mark Ablai</title>
+<meta name="description" content="All Eyes on Independents — a 1080×1350 event-poster animation built in React with Remotion, animated word by word.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@200;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body class="page">
+
+<nav class="nav">
+  <a class="nav-logo" href="index.html">MARK.</a>
+  <div class="nav-links">
+    <a href="index.html#projects">Projects</a>
+    <a href="homelab.html">Homelab</a>
+    <a href="index.html#feed">Feed</a>
+    <a href="resume.html">Resume</a>
+    <a href="index.html#contact">Contact</a>
+  </div>
+</nav>
+
+<div class="page-inner">
+  <h1>ALL EYES ON INDEPENDENTS</h1>
+  <p class="lede">Remotion · React · 1080 × 1350 · 60 fps</p>
+
+  <section>
+    <video class="poster-video" poster="assets/all-eyes-on-independents.jpg"
+           width="1080" height="1350" autoplay loop muted playsinline>
+      <source src="assets/all-eyes-on-independents.mp4" type="video/mp4">
+      <!-- for builds without H.264 -->
+      <source src="assets/all-eyes-on-independents.webm" type="video/webm">
+      <img src="assets/all-eyes-on-independents.jpg" alt="Poster reading All Eyes on Independents, January 19 to 21.">
+    </video>
+  </section>
+
+  <section>
+    <h2>WHAT IT IS</h2>
+    <p>A vertical event poster that animates by words. Every word of both text blocks flies in from
+    off-canvas, lands with a little overshoot, holds, then leaves to the left — faster on the way out
+    than on the way in. Two and a half seconds, on a loop.</p>
+  </section>
+
+  <section>
+    <h2>HOW IT'S BUILT</h2>
+    <p>The frame is a React component. <a href="https://www.remotion.dev" rel="noopener">Remotion</a>
+    renders that component once per frame and encodes the result to H.264 — so the timing lives in code,
+    not in a timeline, and the whole thing is diffable and re-renderable from a single command. Source is
+    in <code>motion/</code> in this repo; <code>npm run render</code> produces the file playing above.</p>
+    <ul>
+      <li><strong>Intro</strong> — each word starts three canvas widths off the right edge and takes 1s to
+      land, with a 100 ms forward stagger. The stagger is spaced linearly; the overshoot is on each word's
+      own travel.</li>
+      <li><strong>Hold</strong> — the last word settles at 1.4s, and the finished composition sits still
+      until 1.64s.</li>
+      <li><strong>Exit</strong> — 500 ms per word, 50 ms stagger, two canvas widths to the left, on an ease
+      that leans back a touch before accelerating away. Last word clears at 2.34s.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>THE PART THAT NEEDED TUNING</h2>
+    <p>An overshoot ease is a percentage of the distance travelled, and the distance here is three canvas
+    widths — so a textbook <code>easeOutBack</code> threw each word 317 px past its mark and slammed it
+    into the neighbouring word. The curve in <code>src/easing.ts</code> is tuned to peak 18 px past the
+    resting position instead: still a springy landing, but smaller than the gap between words, so the
+    type never collides mid-cascade.</p>
+  </section>
+</div>
+
+<script>
+  /* Reduced motion: don't loop a moving poster at someone who asked for stillness.
+     Show the still frame and hand over the controls instead. */
+  (function () {
+    const video = document.querySelector('.poster-video');
+    if (video && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      video.removeAttribute('autoplay');
+      video.removeAttribute('loop');
+      video.pause();
+      video.controls = true;
+    }
+  })();
+</script>
+<script src="js/vendor/lenis.min.js"></script>
+<script src="js/smooth-scroll.js"></script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+{
+  "name": "all-eyes-on-independents",
+  "version": "1.0.0",
+  "description": "Remotion composition \u2014 1080x1350 editorial event-poster animation, animated by words.",
+  "scripts": {
+    "studio": "remotion studio",
+    "render": "remotion render Poster ../assets/all-eyes-on-independents.mp4",
+    "render:webm": "remotion render Poster ../assets/all-eyes-on-independents.webm --codec=vp9",
+    "still": "remotion still Poster ../assets/all-eyes-on-independents.jpg --frame=90",
+    "typecheck": "tsc",
+    "fonts": "cp node_modules/@fontsource/anton/files/anton-latin-400-normal.woff2 public/fonts/anton-400.woff2 && cp node_modules/@fontsource/montserrat/files/montserrat-latin-700-normal.woff2 public/fonts/montserrat-700.woff2"
+  },
+  "dependencies": {
+    "@fontsource/anton": "^5.3.0",
+    "@fontsource/montserrat": "^5.3.0",
+    "@remotion/cli": "^4.0.520",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "remotion": "^4.0.520"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.7",
+    "typescript": "^5.9.3"
+  },
+  "private": true
+}

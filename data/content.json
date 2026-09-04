@@ -28,6 +28,12 @@
       "linkText": "Read the chart"
     },
     {
+      "title": "MOTION POSTER",
+      "desc": "“All Eyes on Independents” — a 1080×1350 event poster animated word by word in React, rendered to video with Remotion.",
+      "link": "poster.html",
+      "linkText": "Watch it"
+    },
+    {
       "title": "MORE UNDERWAY",
       "desc": "Wazuh SIEM build and CCNA lab notes — coming to the log."
     }

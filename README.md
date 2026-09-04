@@ -11,6 +11,7 @@ cloud dive → watercolor wash → koi projects → scale zoom onto the fish's b
 | `data/content.json` | Name, tagline, subline, email, LinkedIn/GitHub URLs, project cards. |
 | `assets/resume.pdf` | Drop your resume here (exact filename). Embeds on the resume page automatically. |
 | `homelab.html` | Long-form homelab writeup — edit the text directly. |
+| `poster.html` | The motion-poster page. The video on it is rendered from `motion/` — see that folder's README. |
 
 Everything else (HTML/CSS/JS) is the engine; you shouldn't need to touch it.
 
