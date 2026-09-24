@@ -11,7 +11,7 @@ const FALLBACK = {
   subline: 'CCDC Linux Team Lead — 1st in Missouri · CompTIA Network+ · Proxmox homelab',
   projectsSub: 'Charted territory — full writeups, configs, and diagrams.',
   feedSub: 'Riding the koi — latest findings from the voyage.',
-  email: 'you@example.com',
+  email: 'ablaimuratbyek@gmail.com',
   linkedin: 'https://www.linkedin.com/',
   github: 'https://github.com/',
   projects: [
