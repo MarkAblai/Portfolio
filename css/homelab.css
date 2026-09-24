@@ -1,0 +1,45 @@
+/* ============ homelab intro (homelab.html only) ============
+   Page-load sequence driven by js/homelab-intro.js. Every hiding rule is scoped under
+   html.hl-anim, which only that script adds — no JS, no hiding. Only transform and
+   opacity animate. */
+
+/* screen-reader copy of the title while the visual one is split into letters */
+.hl-sr{
+  position:absolute;width:1px;height:1px;margin:-1px;padding:0;border:0;
+  overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;
+}
+
+/* ============ title — typewriter ============ */
+.hl-anim .hl-title:not(.is-split):not(.is-done){visibility:hidden}  /* no flash before the split; space still reserved */
+.hl-anim .hl-char{position:relative;opacity:0}                      /* laid out from the start, just not painted */
+.hl-anim .hl-char.is-typed{opacity:1}
+
+.hl-caret{display:none}
+.hl-anim .hl-caret{
+  display:block;position:absolute;left:100%;top:.1em;bottom:.1em;
+  width:.07em;margin-left:.05em;pointer-events:none;
+  transition:opacity .4s ease-out;
+}
+.hl-anim .hl-caret.is-start{left:0;margin-left:0}
+.hl-anim .hl-caret.is-off{opacity:0}
+.hl-caret::before{                                                   /* blink lives here so the fade can own .hl-caret */
+  content:"";position:absolute;inset:0;background:var(--koi);
+  animation:hl-blink 1s steps(1) infinite;
+}
+@keyframes hl-blink{50%{opacity:0}}
+
+/* ============ body — slide in from the side ============ */
+.hl-anim .hl-slide{opacity:0;transform:translateX(-32px)}
+.hl-anim .hl-slide.is-in{
+  opacity:1;transform:none;
+  transition:opacity .55s cubic-bezier(.215,.61,.355,1),transform .55s cubic-bezier(.215,.61,.355,1); /* ease-out */
+  transition-delay:var(--hl-delay,0ms);
+}
+
+/* ============ reduced motion ============
+   The script already skips everything; this covers the setting changing mid-load. */
+@media (prefers-reduced-motion:reduce){
+  .hl-anim .hl-title{visibility:visible}
+  .hl-anim .hl-char,.hl-anim .hl-slide{opacity:1;transform:none;transition:none}
+  .hl-caret{display:none}
+}

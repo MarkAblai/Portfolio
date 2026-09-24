@@ -9,6 +9,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@200;400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/homelab.css">
+<script src="js/homelab-intro.js"></script>
 </head>
 <body class="page">
 
@@ -24,17 +26,17 @@
 </nav>
 
 <div class="page-inner">
-  <h1>THE HOMELAB</h1>
-  <p class="lede">Proxmox · VLANs · Firewall · VPN · Logging</p>
+  <h1 class="hl-title">THE HOMELAB</h1>
+  <p class="lede hl-slide">Proxmox · VLANs · Firewall · VPN · Logging</p>
 
-  <section>
+  <section class="hl-slide">
     <h2>WHY IT EXISTS</h2>
     <p>Self-initiated, built outside coursework, running since early 2025. The goal: a
     production-style environment where breaking things is free and every service is something
     I configured, secured, and documented myself.</p>
   </section>
 
-  <section>
+  <section class="hl-slide">
     <h2>NETWORK MAP</h2>
     <div class="diagram">
       <svg viewBox="0 0 900 440" xmlns="http://www.w3.org/2000/svg" role="img" style="width:100%;height:auto">
@@ -92,7 +94,7 @@
     through firewall rules. Management interfaces are reachable only from the MGMT VLAN.</p>
   </section>
 
-  <section>
+  <section class="hl-slide">
     <h2>WHAT'S RUNNING</h2>
     <ul>
       <li><strong>Proxmox VE</strong> — hypervisor hosting the Linux VM fleet.</li>
@@ -103,7 +105,7 @@
     </ul>
   </section>
 
-  <section>
+  <section class="hl-slide">
     <h2>LESSONS THAT STUCK</h2>
     <ul>
       <li>Segmentation is cheap before you build and expensive after — VLAN design came first, services second.</li>
@@ -112,7 +114,7 @@
     </ul>
   </section>
 
-  <section>
+  <section class="hl-slide">
     <h2>NEXT ON THE CHART</h2>
     <p>Wazuh SIEM on top of the existing log pipeline, and a CCNA-driven redesign of the
     routing layer. Progress lands in the <a href="index.html#feed" style="color:#8A2F1E;font-weight:700">ship's log</a>.</p>
